@@ -1,1 +1,18 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+
+html, body {
+    font-family: 'Borel', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+  
+  .App {
+    width: 100%;
+  }
+  
+  .section {
+    height: 100vh;
+  }
