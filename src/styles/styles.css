@@ -1,8 +1,11 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+@font-face {
+  font-family: "Delius";
+  src: url("../fonts/Delius/Delius-Regular.ttf");
+}
 
 html, body {
-    font-family: 'Borel', sans-serif;
+    font-family: "Delius", serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
