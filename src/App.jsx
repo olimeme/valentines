@@ -434,7 +434,7 @@ function App() {
           {showYesContent && (
             <div className="mt-5 fade-in p-2">
               <img
-                src="src/images/image7.gif"
+                src="images/image7.gif"
                 alt="Happy Valentine"
                 className="mx-auto mb-4"
                 style={{ maxWidth: '250px' }}
