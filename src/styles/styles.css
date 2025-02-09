@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @font-face {
   font-family: "Delius";
-  src: url("fonts/Delius/Delius-Regular.ttf");
+  src: url("../fonts/Delius/Delius-Regular.ttf");
 }
 
 html, body {
