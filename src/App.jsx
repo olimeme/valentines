@@ -9,7 +9,7 @@ function App() {
   const sectionsRef = useRef([]);
   
   const [showYesContent, setShowYesContent] = useState(false);
-  const noButtonRef = useRef(null);
+  const [yesButtonScale, setYesButtonScale] = useState(1);
 
   useEffect(() => {
     const sections = gsap.utils.toArray('.section');
@@ -64,18 +64,11 @@ function App() {
   };
 
   const handleNoClick = () => {
-    if (noButtonRef.current) {
-      const randomX = Math.floor(Math.random() * (window.innerWidth - 100)); 
-      const randomY = Math.floor(Math.random() * (window.innerHeight - 50)); 
-      noButtonRef.current.style.position = 'absolute';
-      noButtonRef.current.style.left = randomX + 'px';
-      noButtonRef.current.style.top = randomY + 'px';
-    }
+    setYesButtonScale((prevScale) => prevScale + 0.1);
   };
 
   return (
     <div className="App">
-      {/* Section 1 */}
       <div className="section bg-blue-50 border-[10px] border-white flex items-center justify-center p-6">
         <div className="text-center text-gray-800">
           <div className="mb-10 max-sm:mb-5 fade-in">
@@ -114,7 +107,6 @@ function App() {
         </div>
       </div>
 
-      {/* Section 2 */}
       <div className="section bg-blue-100 border-[10px] border-white flex items-center justify-center p-6">
         <div className="text-center text-gray-800">
           <p className="text-4xl max-sm:text-3xl fade-in">
@@ -148,7 +140,6 @@ function App() {
         </div>
       </div>
 
-      {/* Section 3 */}
       <div className="section bg-blue-200 border-[10px] border-white flex items-center justify-center p-6">
         <div className="text-center text-gray-800">
           <p className="text-2xl leading-8 fade-in">
@@ -185,7 +176,6 @@ function App() {
         </div>
       </div>
 
-      {/* Section 4 */}
       <div className="section bg-blue-300 border-[10px] border-white flex items-center justify-center p-6">
         <div className="text-center text-gray-800">
           <p className="text-2xl mt-4 fade-in">
@@ -222,7 +212,6 @@ function App() {
         </div>
       </div>
 
-      {/* Section 5 */}
       <div className="section bg-sky-200 border-[10px] border-white flex items-center justify-center p-6">
         <div className="text-center text-gray-800">
           <p className="text-2xl mt-4 fade-in">
@@ -259,7 +248,6 @@ function App() {
         </div>
       </div>
 
-      {/* Section 6 */}
       <div className="section bg-sky-300 border-[10px] border-white flex items-center justify-center p-6">
         <div className="text-center text-gray-800">
           <p className="text-2xl mt-4 fade-in">
@@ -285,10 +273,10 @@ function App() {
                 stroke="currentColor"
               >
                 <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M19 9l-7 7-7-7" 
+                  d="M19 9l-7 7-7-7"
                 />
               </svg>
             </button>
@@ -296,7 +284,6 @@ function App() {
         </div>
       </div>
 
-      {/* Section 7 */}
       <div className="section bg-teal-200 border-[10px] border-white flex items-center justify-center p-6">
         <div className="text-center text-gray-800">
           <p className="text-2xl mt-4 fade-in">
@@ -319,10 +306,10 @@ function App() {
                 stroke="currentColor"
               >
                 <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M19 9l-7 7-7-7" 
+                  d="M19 9l-7 7-7-7"
                 />
               </svg>
             </button>
@@ -330,7 +317,6 @@ function App() {
         </div>
       </div>
 
-      {/* Section 8 */}
       <div className="section bg-teal-300 border-[10px] border-white flex items-center justify-center p-6">
         <div className="text-center text-gray-800">
           <p className="text-2xl mt-4 fade-in">
@@ -365,10 +351,10 @@ function App() {
                 stroke="currentColor"
               >
                 <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M19 9l-7 7-7-7" 
+                  d="M19 9l-7 7-7-7"
                 />
               </svg>
             </button>
@@ -376,7 +362,6 @@ function App() {
         </div>
       </div>
 
-      {/* Section 9 */}
       <div className="section bg-cyan-200 border-[10px] border-white flex items-center justify-center p-6">
         <div className="text-center text-gray-800">
           <p className="text-4xl fade-in">With that all being said</p>
@@ -397,10 +382,10 @@ function App() {
                 stroke="currentColor"
               >
                 <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M19 9l-7 7-7-7" 
+                  d="M19 9l-7 7-7-7"
                 />
               </svg>
             </button>
@@ -408,29 +393,31 @@ function App() {
         </div>
       </div>
 
-      {/* Section 10 (Last Section) */}
       <div className="section bg-cyan-300 border-[10px] border-white flex items-center justify-center p-6">
         <div className="relative text-center text-gray-800">
-          <p className="text-4xl fade-in">Will you be my Valentine?</p>
-          <div className="mt-5 fade-in">
-            {/* YES Button */}
-            <button
-              onClick={handleYesClick}
-              className="bg-green-500 text-white px-4 py-2 rounded-md mr-4"
-            >
-              Yes
-            </button>
-            {/* NO Button */}
-            <button
-              ref={noButtonRef}
-              onClick={handleNoClick}
-              className="bg-red-500 text-white px-4 py-2 rounded-md"
-            >
-              No
-            </button>
-          </div>
 
-          {/* Content that shows up when YES is clicked */}
+          {!showYesContent && (
+            <div>
+              <p className="text-4xl fade-in">Will you be my Valentine?</p>
+              <div className="mt-5 fade-in flex w-full gap-28 justify-center">
+                <button
+                  onClick={handleYesClick}
+                  className="bg-green-500 text-white px-4 py-2 rounded-md"
+                  style={{ transform: `scale(${yesButtonScale})` }}
+                >
+                  Yes
+                </button>
+
+                <button
+                  onClick={handleNoClick}
+                  className="bg-red-500 text-white px-4 py-2 rounded-md"
+                >
+                  No
+                </button>
+              </div>
+            </div>
+          )}
+
           {showYesContent && (
             <div className="mt-5 fade-in p-2">
               <img
@@ -440,7 +427,7 @@ function App() {
                 style={{ maxWidth: '250px' }}
               />
               <p className="text-2xl">YIPIEEEEEEEEEEEE</p>
-              <p className="text-2xl">I LOVE YOU SOSOSOSOSOSOSOSOSOSOSOSOSOSO MUCH</p>
+              <p className="text-2xl">I LOVE YOU SOOOOOOOOOOOOOO MUCH</p>
             </div>
           )}
         </div>
